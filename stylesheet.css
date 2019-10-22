@@ -1,26 +1,85 @@
 /* body{
     background-color: darkturquoise;
 } */
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    
+}
+
 h1{
     text-align: center;
 }
 #quiz-container{
-    background-color: darkseagreen;
+   
     display: flex;
     justify-content: center;
-    padding: 1rem;
+    padding: 3rem;
     border-radius: 1rem;
     margin: 3rem;
+    text-align: center;
 }
-.question-container{
-    display: flex;
-    flex-direction: column;
+.accordion{
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    text-align: center;
 }
-.choice{
-    margin: 0.5rem;
+.active, .accordion:hover{
+    background-color: #ccc;
 }
+.panel{
+    padding: 0 1rem;
+    display: none;
+    overflow: hidden;
+   
+  
+}
+h2{
+    text-align: center;
+    margin: 2rem 0 0 0;
+}
+.questions-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr; 
+}
+
+.id-container{
+grid-column-start: 1 / span 1;
+/* background-color: blueviolet; */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.label-container{
+    grid-column-start: 2 /span 1;
+    /* background-color: chartreuse; */
+    text-align: center;
+    padding: 8rem;
+}
+
+
+img{
+    width: 24rem;
+    height: 20rem;   
+}
+
 p{
-    font-weight: bold;
+    font-weight: bold;  
 }
 
 /* How to hide radio buttons: https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons */
+
+  [type=radio]{
+      opacity: 0;
+  }
+  
