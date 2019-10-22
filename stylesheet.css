@@ -1,3 +1,26 @@
 /* body{
     background-color: darkturquoise;
 } */
+h1{
+    text-align: center;
+}
+#quiz-container{
+    background-color: darkseagreen;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 3rem;
+}
+.question-container{
+    display: flex;
+    flex-direction: column;
+}
+.choice{
+    margin: 0.5rem;
+}
+p{
+    font-weight: bold;
+}
+
+/* How to hide radio buttons: https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons */
