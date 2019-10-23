@@ -12,6 +12,10 @@ body{
     background: none; 
     background-color: green;
 }
+.red{
+    background: none;
+    background-color: red;
+}
 h1{
     font-family: 'Nosifer', cursive;
 }

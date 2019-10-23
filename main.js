@@ -1,8 +1,3 @@
-
-
-
-// alert("hello world")
-
 //Initializing variables to retrive elements from the html page. Elements include: the body, the heading, the labels, inputs, paragaphs, the image for each question, the introductory text, all of the buttons, the form, and the container that holds the form. 
 let body = document.querySelector("body")
 let heading = document.getElementById("heading")
@@ -17,18 +12,10 @@ let questionNumber = document.querySelector("#questionNumber")
 let submitButton = document.querySelector("#submit-btn");
 let nextButton = document.querySelector('#next-btn');
 let form = document.querySelector("#quiz");
-
-
-//Function for checking answers 
-
-
-//Each question will include: 
-//One heading with the question. 
-//One image 
-//four labels 
-//four inputs 
-//four paragraphs
-
+let correct = ["Cut off their toes and heels",
+               "She was forced to wear a pair of red hot iron shoes until she dropped dead",     
+               "Rapunzel's clothes no longer fit because she was pregnant"
+]
 class Question {
     constructor(heading, inputs, image) {
         this.heading = heading;
@@ -37,7 +24,6 @@ class Question {
     }
 
 }
-
 class Bank {
     constructor() {
         this.count = 0;
@@ -71,22 +57,25 @@ class Bank {
         }
     }
     checkAnswer(){
+        this.count++;
         let questions = this.questions[this.count]; 
         for(let i = 0; i < inputs.length; i++){
            if(form[i].checked){
                console.log(form[i].value)
-               if(form[i].value == "Cut off their toes and heels"){
+               if(form[i].value == "Cut off their toes and heels"|| form[i].value == "She was forced to wear a pair of red hot iron shoes until she dropped dead" || form[i].value == "Rapunzel's clothes no longer fit because she was pregnant"){
                    alert("Correct!")
+                   body.classList.add("green"); 
+                   nextButton.classList.remove("hidden");
+                   
                }
                else{
                    alert("incorrect");
+                   body.classList.add("red");
+                   nextButton.classList.remove("hidden");    
                }
-
            }
-        }
-        
+        }  
     }
-
     startGame() { 
         this.createQuestions();
         this.displayQuestion();
@@ -94,74 +83,32 @@ class Bank {
     }
 }
 let newBank = new Bank(); 
+
 //Add Event Listener to start button for starting the quiz 
 startButton.addEventListener("click", startGame);
-// submitButton.addEventListener("click", checkAnswer)
+
 //Function for starting the game 
 function startGame(evt){
     evt.preventDefault();
     newBank.startGame();
 }
+
+//Event Listener on submit button to check the correct answer 
 submitButton.addEventListener("click", checkAnswer)
 
+//Function that calls the check answer function in the newBank Object
 function checkAnswer(evt){
     evt.preventDefault();
     newBank.checkAnswer(); 
 }
 
+//Event Listener on the next button to move to the next question. 
+nextButton.addEventListener("click", nextQuestion); 
 
-//  class Quiz{
-//     constructor(){
-//         this.bank = new Bank();
-//     }
-// initQuestions(){
-//     this.bank.createQuestions();
-// }
-
-//  }
-
-// let myQuiz = new Quiz();
-
-
-
-
-// for(let i = 0; i < selectionButtons.length; i++){
-//     selectionButtons[i].addEventListener("click", chooseMode);
-// }
-// function chooseMode(evt){
-//     evt.preventDefault();
-//     intro.classList.add("hidden");
-//     quizContainer.classList.remove("hidden");
-//     selectionButtons[0].classList.add("hidden");
-//     selectionButtons[1].classList.add("hidden");
-// }
-
-// for(let i = 0; i < labels.length; i++){
-//     questionNumber.innerText = question1.questionNumber;
-//     heading.innerText = question1.heading; 
-//     image.setAttribute("src", question1.image); 
-//     inputs[i].setAttribute("value", question1.input[i]);
-//     paragraphs[i].innerText = question1.input[i];
-// }
-
-// submitButton.addEventListener("click", submitAnswer);
-
-// function submitAnswer(evt){
-//     evt.preventDefault();
-//     body.classList.add("green");
-//     nextButton.classList.remove("hidden");
-// }
-
-// nextButton.addEventListener("click", nextQuestion); 
-
-// function nextQuestion(evt){
-//     evt.preventDefault(); 
-//     for(let i = 0; i < labels.length; i++){
-//         questionNumber.innerText = question2.questionNumber;
-//         heading.innerText = question2.heading; 
-//         image.setAttribute("src", question2.image); 
-//         inputs[i].setAttribute("value", question2.input[i]);
-//         paragraphs[i].innerText = question2.input[i];
-//         body.classList.remove("green");
-// } 
-// }
+//Function that changes the background back to original and calls the display questions function inside the newbank object 
+function nextQuestion(evt){
+    evt.preventDefault();
+    body.classList.remove("green");
+    body.classList.remove("red");
+    newBank.displayQuestion();
+}
