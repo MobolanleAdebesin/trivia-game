@@ -40,7 +40,7 @@ class Bank {
             ["She spied on the pair and saw the prince climbing Rapunzel's hair", "Rapunzel's clothes no longer fit because she was pregnant", "Rapunzel said 'You pull much harder than the prince when you climb my hair", "The prince left behind a lock of hair"]
         ]
         let image = ["glass-slipper.gif", "snow-white-queen.gif", "rapunzel-witch.gif"];
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < allHeadings.length; i++) {
             this.questions.push(new Question(allHeadings[i], allInputs[i], image[i]));
         }
     }
@@ -50,6 +50,7 @@ class Bank {
         heading.innerText = this.questions[this.count].heading;
         image.setAttribute("src", questions.image);
         submitButton.classList.remove("hidden");
+        nextButton.classList.add("hidden");
         for (let i = 0; i < 4; i++) {
             inputs[i].setAttribute("value", questions.inputs[i]);
             inputs[i].setAttribute("name", `question ${this.count}`)
@@ -63,13 +64,11 @@ class Bank {
            if(form[i].checked){
                console.log(form[i].value)
                if(form[i].value == "Cut off their toes and heels"|| form[i].value == "She was forced to wear a pair of red hot iron shoes until she dropped dead" || form[i].value == "Rapunzel's clothes no longer fit because she was pregnant"){
-                   alert("Correct!")
                    body.classList.add("green"); 
                    nextButton.classList.remove("hidden");
                    
                }
                else{
-                   alert("incorrect");
                    body.classList.add("red");
                    nextButton.classList.remove("hidden");    
                }
@@ -80,6 +79,8 @@ class Bank {
         this.createQuestions();
         this.displayQuestion();
         quizContainer.classList.remove("hidden");
+        intro.classList.add("hidden");
+
     }
 }
 let newBank = new Bank(); 
