@@ -8,6 +8,10 @@ body{
     background: url(haunted-house.gif) no-repeat center center fixed;
     background-size: cover;
 }
+.green{
+    background: none; 
+    background-color: green;
+}
 h1{
     font-family: 'Nosifer', cursive;
 }
@@ -69,13 +73,23 @@ a{
     color: #f2eee5;
     /* border: 3px solid #c52d47; */
     border-radius: 5%;
-   
     margin: 3rem;
     /* background-image: radial-gradient(circle, #dc143c, #c52d47, #ac3c4f, #924553, #774b54);} */
+}
+a:hover{
+    background-image: none; 
+    background-color: crimson;
 }
 
 .btn-grad {background-image: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%)}
 .btn-grad:hover { background-position: right center; }
+#submit-btn-container{
+    display: flex; 
+    justify-content: center;
+}
+.hidden{
+    display: none;
+}
 
 
 @media screen and (max-width: 768px){
