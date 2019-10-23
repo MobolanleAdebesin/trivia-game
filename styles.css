@@ -36,6 +36,20 @@ h2{
     margin: 2rem 2rem;
 }
 
+    form{
+        text-align: center;
+    }
+    label{
+        text-align: center; 
+    }
+    [type=radio]{
+        opacity: 0;
+    }
+
+    p:hover{
+        color: crimson;
+    }
+
 a{
     height: 4em;
     width: 8em;
@@ -55,6 +69,8 @@ a:hover{
     background-color: #3c4245;
     color: white;
 }
+
+
 @media screen and (max-width: 768px){
 
     h2{
