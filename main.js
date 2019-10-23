@@ -33,13 +33,15 @@ class Bank {
 
         let allHeadings = ["In Cinderalla, how did her step-sisters attempt to prove they were the mystery woman from the ball?",
             "In Snow White and the Seven Dwarves, how was the wicked queen punished at the end of the story?",
-            "In the story of Rapunzel, how did the witch know Rapunzel had been visited by the prince?"];
+            "In the story of Rapunzel, how did the witch know Rapunzel had been visited by the prince?",
+        "How was sleeping beauty awakened from her slumber in the Brothers Grimm version of the tale?"];
         let allInputs = [
             ["Cut off their toes and heels", "Attempt to murder Cinderella", "Steal the glass slipper", "Kidnap the prince"],
             ["She was banished from the kingdom", "The hunter cut out her heart and liver", "She was forced to wear a pair of red hot iron shoes until she dropped dead", "The seven dwarves made her their maid for the rest of her life"],
-            ["She spied on the pair and saw the prince climbing Rapunzel's hair", "Rapunzel's clothes no longer fit because she was pregnant", "Rapunzel said 'You pull much harder than the prince when you climb my hair", "The prince left behind a lock of hair"]
+            ["She spied on the pair and saw the prince climbing Rapunzel's hair", "Rapunzel's clothes no longer fit because she was pregnant", "Rapunzel said 'You pull much harder than the prince when you climb my hair", "The prince left behind a lock of hair"], 
+            ["True love's kiss awokened the princess", "The nudging of her newborn twins awokened the princess", "The pain from a dagger awokened the princess", "A special antidote awokened the princess"]
         ]
-        let image = ["glass-slipper.gif", "snow-white-queen.gif", "rapunzel-witch.gif"];
+        let image = ["glass-slipper.gif", "snow-white-queen.gif", "rapunzel-witch.gif", "sleeping-beauty.gif"];
         for (let i = 0; i < allHeadings.length; i++) {
             this.questions.push(new Question(allHeadings[i], allInputs[i], image[i]));
         }
