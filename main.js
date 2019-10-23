@@ -13,8 +13,9 @@ let submitButton = document.querySelector("#submit-btn");
 let nextButton = document.querySelector('#next-btn');
 let form = document.querySelector("#quiz");
 let correct = ["Cut off their toes and heels",
-               "She was forced to wear a pair of red hot iron shoes until she dropped dead",     
-               "Rapunzel's clothes no longer fit because she was pregnant"
+    "She was forced to wear a pair of red hot iron shoes until she dropped dead",
+    "Rapunzel's clothes no longer fit because she was pregnant",
+    "The nudging of her newborn twins awokened the princess"
 ]
 class Question {
     constructor(heading, inputs, image) {
@@ -34,11 +35,11 @@ class Bank {
         let allHeadings = ["In Cinderalla, how did her step-sisters attempt to prove they were the mystery woman from the ball?",
             "In Snow White and the Seven Dwarves, how was the wicked queen punished at the end of the story?",
             "In the story of Rapunzel, how did the witch know Rapunzel had been visited by the prince?",
-        "How was sleeping beauty awakened from her slumber in the Brothers Grimm version of the tale?"];
+            "How was sleeping beauty awakened from her slumber in the Brothers Grimm version of the tale?"];
         let allInputs = [
             ["Cut off their toes and heels", "Attempt to murder Cinderella", "Steal the glass slipper", "Kidnap the prince"],
             ["She was banished from the kingdom", "The hunter cut out her heart and liver", "She was forced to wear a pair of red hot iron shoes until she dropped dead", "The seven dwarves made her their maid for the rest of her life"],
-            ["She spied on the pair and saw the prince climbing Rapunzel's hair", "Rapunzel's clothes no longer fit because she was pregnant", "Rapunzel said 'You pull much harder than the prince when you climb my hair", "The prince left behind a lock of hair"], 
+            ["She spied on the pair and saw the prince climbing Rapunzel's hair", "Rapunzel's clothes no longer fit because she was pregnant", "Rapunzel said 'You pull much harder than the prince when you climb my hair", "The prince left behind a lock of hair"],
             ["True love's kiss awokened the princess", "The nudging of her newborn twins awokened the princess", "The pain from a dagger awokened the princess", "A special antidote awokened the princess"]
         ]
         let image = ["glass-slipper.gif", "snow-white-queen.gif", "rapunzel-witch.gif", "sleeping-beauty.gif"];
@@ -59,25 +60,26 @@ class Bank {
             paragraphs[i].innerText = questions.inputs[i];
         }
     }
-    checkAnswer(){
+    checkAnswer() {
         this.count++;
-        let questions = this.questions[this.count]; 
-        for(let i = 0; i < inputs.length; i++){
-           if(form[i].checked){
-               console.log(form[i].value)
-               if(form[i].value == "Cut off their toes and heels"|| form[i].value == "She was forced to wear a pair of red hot iron shoes until she dropped dead" || form[i].value == "Rapunzel's clothes no longer fit because she was pregnant"){
-                   body.classList.add("green"); 
-                   nextButton.classList.remove("hidden");
-                   
-               }
-               else{
-                   body.classList.add("red");
-                   nextButton.classList.remove("hidden");    
-               }
-           }
-        }  
+        let questions = this.questions[this.count];
+        for (let i = 0; i < 4; i++) {
+            if (form[i].checked) {
+                console.log(form[i].value)
+                //    if(form[i].value == "Cut off their toes and heels"|| form[i].value == "She was forced to wear a pair of red hot iron shoes until she dropped dead" || form[i].value == "Rapunzel's clothes no longer fit because she was pregnant"){
+                if (correct.includes(form[i].value)) {
+                    body.classList.add("green");
+                    nextButton.classList.remove("hidden");
+
+                }
+                else {
+                    body.classList.add("red");
+                    nextButton.classList.remove("hidden");
+                }
+            }
+        }
     }
-    startGame() { 
+    startGame() {
         this.createQuestions();
         this.displayQuestion();
         quizContainer.classList.remove("hidden");
@@ -85,13 +87,13 @@ class Bank {
 
     }
 }
-let newBank = new Bank(); 
+let newBank = new Bank();
 
 //Add Event Listener to start button for starting the quiz 
 startButton.addEventListener("click", startGame);
 
 //Function for starting the game 
-function startGame(evt){
+function startGame(evt) {
     evt.preventDefault();
     newBank.startGame();
 }
@@ -100,16 +102,16 @@ function startGame(evt){
 submitButton.addEventListener("click", checkAnswer)
 
 //Function that calls the check answer function in the newBank Object
-function checkAnswer(evt){
+function checkAnswer(evt) {
     evt.preventDefault();
-    newBank.checkAnswer(); 
+    newBank.checkAnswer();
 }
 
 //Event Listener on the next button to move to the next question. 
-nextButton.addEventListener("click", nextQuestion); 
+nextButton.addEventListener("click", nextQuestion);
 
 //Function that changes the background back to original and calls the display questions function inside the newbank object 
-function nextQuestion(evt){
+function nextQuestion(evt) {
     evt.preventDefault();
     body.classList.remove("green");
     body.classList.remove("red");
