@@ -26,14 +26,18 @@ main{
     font-weight: bold;
 }
 
-h2{
+#intro, #quiz-container{
     padding: 4rem;
     text-align: justify;
     line-height: 2rem;
     background-color: #3c4245;
     opacity: 0.8;
     border-radius: 1rem;
-    margin: 2rem 2rem;
+    margin: 2rem;
+}
+
+h2{
+    margin: 0 1em 1em;
 }
 
     form{
@@ -42,8 +46,13 @@ h2{
     label{
         text-align: center; 
     }
-    [type=radio]{
+    input[type="radio"]{
         opacity: 0;
+    }
+    input[type="radio"]:checked  ~ p{
+        background-color: crimson;
+        border-radius: 1rem;
+
     }
 
     p:hover{
@@ -58,22 +67,20 @@ a{
     align-items: center;
     text-decoration: none;
     color: #f2eee5;
-    border: 3px solid #dfcdc3;
+    /* border: 3px solid #c52d47; */
     border-radius: 5%;
-    text-align: center;
+   
     margin: 3rem;
-    background-image: radial-gradient(circle, #719192, #6d8688, #687c7e, #647174, #5f6769);
+    /* background-image: radial-gradient(circle, #dc143c, #c52d47, #ac3c4f, #924553, #774b54);} */
 }
-a:hover{
-    background-image: none;
-    background-color: #3c4245;
-    color: white;
-}
+
+.btn-grad {background-image: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%)}
+.btn-grad:hover { background-position: right center; }
 
 
 @media screen and (max-width: 768px){
 
-    h2{
+    #intro{
         padding: 1em 2em 1em;
         font-size: 2rem;
         text-align: justify;
@@ -99,13 +106,9 @@ a:hover{
             border-radius: 5%;
             text-align: center;
             margin: 1rem;
-            background-image: radial-gradient(circle, #719192, #6d8688, #687c7e, #647174, #5f6769);
+            /* background-image: radial-gradient(circle, #719192, #6d8688, #687c7e, #647174, #5f6769); */
         }
-        a:hover{
-            background-image: none;
-            background-color: #3c4245;
-            color: white;
-        }
+       
 }
 @media screen and (max-width: 576px){
     header{
@@ -120,7 +123,7 @@ a:hover{
        display: flex;
    }
     
-    h2{
+    #intro{
     padding: 1em 2em 1em;
     font-size: 1.2rem;
     text-align: justify;
@@ -148,11 +151,11 @@ a:hover{
         border-radius: 5%;
         text-align: center;
         margin: 1em;
-        background-image: radial-gradient(circle, #719192, #6d8688, #687c7e, #647174, #5f6769);
+        /* background-image: radial-gradient(circle, #719192, #6d8688, #687c7e, #647174, #5f6769); */
     }
     a:hover{
-        background-image: none;
-        background-color: #3c4245;
+        /* background-image: none; */
+        /* background-color: #3c4245; */
         color: white;
     }
 
