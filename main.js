@@ -118,6 +118,10 @@ class Bank {
     startGame() {
         this.createQuestions();
         this.shuffle(this.questions);
+        for(let i = 0; i < 4; i++){
+            this.shuffle(this.questions[i].inputs);
+        }
+
         this.displayQuestion();
         quizContainer.classList.remove("hidden");
         intro.classList.add("hidden");
