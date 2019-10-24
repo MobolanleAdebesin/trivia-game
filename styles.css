@@ -36,12 +36,17 @@ main{
 
 #intro, #quiz-container{
     padding: 4rem;
-    text-align: justify;
+    /* text-align: justify; */
     line-height: 2rem;
     background-color: #3c4245;
     opacity: 0.8;
     border-radius: 1rem;
     margin: 2rem;
+}
+#label-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 h2{
@@ -51,20 +56,37 @@ h2{
     form{
         text-align: center;
     }
+    img{
+        border: black 1px solid;
+        box-shadow: 0 0 10px 2px black;
+    }
     label{
         text-align: center; 
+        border: rgb(121, 107, 107) 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+        margin: 1em;
+        box-shadow: 0 0 10px 2px;
+        background-color: #f2eee5;
+        /* background-color: rgb(210, 210, 247); */
+        border-radius: 1rem;
     }
     input[type="radio"]{
         opacity: 0;
     }
-    input[type="radio"]:checked  ~ p{
-        background-color: crimson;
-        border-radius: 1rem;
+    input[type="radio"]:checked ~ p{
+       color:   #135D83;
+      
 
+    }
+    p{
+        color: black;
     }
 
     p:hover{
-        color: crimson;
+        color:#135D83;
     }
 
 a{
@@ -91,6 +113,9 @@ a:hover{
     display: flex; 
     justify-content: center;
 }
+#submit-btn{
+    padding: 0.5em;
+}
 .hidden{
     display: none;
 }
@@ -98,7 +123,7 @@ a:hover{
 
 @media screen and (max-width: 768px){
 
-    #intro{
+    #intro, #quiz-container{
         padding: 1em 2em 1em;
         font-size: 2rem;
         text-align: justify;
@@ -111,6 +136,9 @@ a:hover{
         #button-container{
             display: flex;
         }
+        #label-container{
+            display: block;
+        }
         a{
             height: 3em;
             width: 7em;
@@ -120,7 +148,7 @@ a:hover{
             align-items: center;
             text-decoration: none;
             color: #f2eee5;
-            border: 3px solid #dfcdc3;
+            
             border-radius: 5%;
             text-align: center;
             margin: 1rem;
@@ -141,7 +169,7 @@ a:hover{
        display: flex;
    }
     
-    #intro{
+    #intro, #quiz-container{
     padding: 1em 2em 1em;
     font-size: 1.2rem;
     text-align: justify;
@@ -156,6 +184,9 @@ a:hover{
         color: #f2eee5;
         margin: 1rem;
     }
+    #label-container{
+        display: block;
+    }
     a{
         font-size: 1rem;
         height: 3em;
@@ -165,7 +196,6 @@ a:hover{
         align-items: center;
         text-decoration: none;
         color: #f2eee5;
-        border: 3px solid #dfcdc3;
         border-radius: 5%;
         text-align: center;
         margin: 1em;
