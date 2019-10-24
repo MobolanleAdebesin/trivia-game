@@ -1,7 +1,7 @@
 //Initializing variables to retrive elements from the html page. Elements include: the body, the heading, the labels, inputs, paragaphs, the image for each question, the introductory text, all of the buttons, the form, and the container that holds the form. 
 let body = document.querySelector("body")
 let countdown = document.querySelector("#countdown");
-let timer = 100;
+let timer = 80;
 let heading = document.getElementById("heading")
 let labels = document.getElementsByTagName("label");
 let inputs = document.getElementsByTagName("input");
@@ -23,8 +23,6 @@ let correct = ["Cut off their toes and heels",
     "The princess smashes the frog against the wall",
     "Pinnochio crushes him with a hammer"
 ]
-
-
 
 class Question {
     constructor(heading, inputs, image) {
@@ -83,29 +81,6 @@ class Bank {
         }
         else {
             this.gameOver();
-            // form.style.display = "none";
-            // let gameOver = document.createElement("h2");
-            // quizContainer.appendChild(gameOver);
-            // gameOver.innerText = `Game Over Your Score is ${this.score} out of 8`;
-
-            // let message = document.createElement("h3");
-            // quizContainer.appendChild(message);
-
-            // let gif = document.createElement("img");
-            // quizContainer.appendChild(gif);
-
-            // if (this.score == 6) {
-            //     message.innerText = "A Perfect Score! You Really Know Your Stuff!";
-            //     gif.setAttribute("src", "images/applause.gif");
-            // }
-            // else if (this.score < 6 && this.score > 3) {
-            //     message.innerText = "Not Too Bad, but You Can Do Better!";
-            //     gif.setAttribute("src", "images/tiana.gif");
-            // }
-            // else if (this.score <= 3) {
-            //     message.innerText = "Yikes. Might Wanna Brush Up on Your Fairytales!";
-            //     gif.setAttribute("src", "images/Pocahontas.gif")
-            // }
         }
     }
     shuffle(array) {
@@ -145,14 +120,12 @@ class Bank {
         }
 
         let time = setInterval(function () {
-            countdown.innerHTML = timer;
+            countdown.innerHTML = `Time Remaining: ${timer} seconds`;
             timer--;
             if (timer == 0) {
                 clearInterval(time);
                 countdown.innerHTML = "Time is Up!";
                 newBank.gameOver();
-                
-
             }
         }, 1000);
 
@@ -186,7 +159,6 @@ class Bank {
                 gif.setAttribute("src", "images/Pocahontas.gif")
             }
     }
-
 }
 //Initializing the instance of the class Bank called newBank; 
 let newBank = new Bank();
@@ -199,7 +171,6 @@ function startGame(evt) {
     evt.preventDefault();
     newBank.startGame();
 }
-
 //Event Listener on submit button to check the correct answer 
 submitButton.addEventListener("click", checkAnswer)
 
@@ -208,7 +179,6 @@ function checkAnswer(evt) {
     evt.preventDefault();
     newBank.checkAnswer();
 }
-
 //Event Listener on the next button to move to the next question. 
 nextButton.addEventListener("click", nextQuestion);
 
