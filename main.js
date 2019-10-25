@@ -2,7 +2,7 @@
 let body = document.querySelector("body")
 let countdown = document.querySelector("#countdown");
 let playerScore = document.querySelector("#playerScore");
-let timer = 5;
+let timer = 80;
 let heading = document.getElementById("heading")
 let labels = document.getElementsByTagName("label");
 let inputs = document.getElementsByTagName("input");
@@ -149,7 +149,7 @@ class Bank {
         quizContainer.appendChild(previousScore);
         //The previous score is set to the sessionStorage item. 
         previousScore.innerHTML = `Your Previous Score: ${sessionStorage.getItem("lastScore")}`;
-        
+
         //The sessionStorage item is equal to the previous score 
         sessionStorage.setItem("lastScore", this.prevScore);
 
