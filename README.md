@@ -1,4 +1,4 @@
-# trivia-game
+# Trivia-game
 
 ## Description 
 This trivia-game is my first General Assembly Project built without guidance. All the choices from the design of the game, the user interface, and logic were created from beginning to end. The goal of this project was to create a minimum viable project in the alloted 3 day time span, thus demonstrating my ability to work independently while meeting outlined technical requirements. 
