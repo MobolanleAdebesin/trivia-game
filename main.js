@@ -112,12 +112,22 @@ class Bank {
             if (form[i].checked) {
                 console.log(form[i].value)
                 if (correct.includes(form[i].value)) {
+                    swal({
+                        title: "Correct!",
+                        text: "Correct!",
+                        icon: "success",
+                      });
                     body.classList.add("green");
                     nextButton.classList.remove("hidden");
                     this.score++;
                     playerScore.innerText = `Score: ${this.score}`;
                 }
                 else {
+                    swal({
+                        title: "Incorrect!",
+                        text: "Incorrect!",
+                        icon: "error",
+                      });
                     body.classList.add("red");
                     nextButton.classList.remove("hidden");
                     playerScore.innerText = `Score: ${this.score}`;

@@ -19,6 +19,10 @@ body{
 h1{
     font-family: 'Nosifer', cursive;
 }
+h2, h3, h4{
+   text-align: center; 
+}
+
 #countdown{
     font-size: 2rem;
     text-shadow:
@@ -212,6 +216,7 @@ a:hover{
         color:  #f2eee5;
         font-weight: bold;
         display: flex;
+        margin: 1em;
     }
    #button-container{
        display: flex;
