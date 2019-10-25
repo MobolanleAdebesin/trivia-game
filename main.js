@@ -17,6 +17,8 @@ let nextButton = document.querySelector('#next-btn');
 let restartButton = document.querySelector('#restart-btn');
 let form = document.querySelector("#quiz");
 let labelContainer = document.querySelector("#label-container");
+
+//An array containing all of the correct answers. 
 let correct = ["Cut off their toes and heels",
     "She was forced to wear a pair of red hot iron shoes until she dropped dead",
     "Rapunzel's clothes no longer fit because she was pregnant",
@@ -26,7 +28,7 @@ let correct = ["Cut off their toes and heels",
     "Pinnochio crushes him with a hammer",
     "Esmeralda dies and Quasimodo visits her grave until he too passes"
 ]
-
+// class for structuring the format of the questions 
 class Question {
     constructor(heading, inputs, image) {
         this.heading = heading;
@@ -34,6 +36,8 @@ class Question {
         this.image = image;
     }
 }
+
+//class for creating a questions bank, essentially an array that assembles the question, images, and answers and then hold the questions in an aray. 
 class Bank {
     constructor() {
         this.count = 0;
@@ -86,6 +90,7 @@ class Bank {
             this.gameOver();
         }
     }
+    //Utilized the Fisher Yates shuffle algorithm: https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
     shuffle(array) {
         var m = array.length, t, s;
         while (m) {
