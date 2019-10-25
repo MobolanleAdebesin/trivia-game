@@ -89,6 +89,9 @@ class Bank {
         else {
             this.gameOver();
         }
+        for(let j = 0; j < form.length; j++){
+            form[j].checked = false;
+        }
     }
     //Utilized the Fisher Yates shuffle algorithm: https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
     shuffle(array) {
@@ -174,7 +177,11 @@ class Bank {
             message.innerText = "A Perfect Score! You Really Know Your Stuff!";
             gif.setAttribute("src", "images/applause.gif");
         }
-        else if (this.score < 8 && this.score > 4) {
+        else if(this.score >=6 && this.score < 8){
+            message.innerText = "Impressive! Can You Get A Perfect Score Next Time?"
+            gif.setAttribute("src", "images/smile.gif");
+        }
+        else if (this.score < 6 && this.score > 4) {
             message.innerText = "Not Too Bad, But You Can Do Better!";
             gif.setAttribute("src", "images/tiana.gif");
         }
