@@ -16,12 +16,14 @@
     </header>
     <main>
         <h2 id="countdown" class="hidden"></h2>
+        
         <h2 id="intro">Many of the fairytales that we grew up reading at bedtime have endings much darker than you'd
             think.
             The stories that we know and love are often based on folklore and mythology that have been told and retold
             for centuries.
             Take this quiz and test your knowledge. How well do you know your favorite stories?</h2>
         <div class="hidden" id="quiz-container">
+                <h3 id="playerScore"></h3>
             <form id="quiz" name="quiz">
                 <h2 id="questionNumber"></h2>
                 <h2 id="heading"></h2>
@@ -50,8 +52,10 @@
                 <div id="submit-btn-container">
                     <a id="submit-btn" class="btn-grad hidden" href="#">Submit Answer</a>
                     <a id="next-btn" class="btn-grad hidden" href="#">Next</a>
+                   
                 </div>
             </form>
+            <a id="restart-btn" class="btn-grad hidden" href="#">Restart Game</a>
         </div>
         <div id=button-container>
             <a class="start-quiz-btn btn-grad" href="">Start Quiz</a>

@@ -1,7 +1,8 @@
 //Initializing variables to retrive elements from the html page. Elements include: the body, the heading, the labels, inputs, paragaphs, the image for each question, the introductory text, all of the buttons, the form, and the container that holds the form. 
 let body = document.querySelector("body")
 let countdown = document.querySelector("#countdown");
-let timer = 80;
+let playerScore = document.querySelector("#playerScore");
+let timer = 5;
 let heading = document.getElementById("heading")
 let labels = document.getElementsByTagName("label");
 let inputs = document.getElementsByTagName("input");
@@ -13,6 +14,7 @@ let quizContainer = document.querySelector("#quiz-container");
 let questionNumber = document.querySelector("#questionNumber")
 let submitButton = document.querySelector("#submit-btn");
 let nextButton = document.querySelector('#next-btn');
+let restartButton = document.querySelector('#restart-btn');
 let form = document.querySelector("#quiz");
 let labelContainer = document.querySelector("#label-container");
 let correct = ["Cut off their toes and heels",
@@ -21,7 +23,8 @@ let correct = ["Cut off their toes and heels",
     "The nudging of her newborn twins awokened the princess",
     "The prince marries someone else, the little mermaid throws herself into the ocean and turns to foam",
     "The princess smashes the frog against the wall",
-    "Pinnochio crushes him with a hammer"
+    "Pinnochio crushes him with a hammer",
+    "Esmeralda dies and Quasimodo visits her grave until he too passes"
 ]
 
 class Question {
@@ -36,11 +39,10 @@ class Bank {
         this.count = 0;
         this.score = 0;
         this.questions = [];
-        // this.timer = 15;
     }
     createQuestions() {
 
-        let allHeadings = ["In Cinderalla, how did her step-sisters attempt to prove they were the mystery woman from the ball?",
+        let allHeadings = ["In Cinderella, how did her step-sisters attempt to prove they were the mystery woman from the ball?",
             "In Snow White and the Seven Dwarves, how was the wicked queen punished at the end of the story?",
             "In the story of Rapunzel, how did the witch know Rapunzel had been visited by the prince?",
             "How was sleeping beauty awakened from her slumber in the Brothers Grimm version of the tale?",
@@ -104,10 +106,12 @@ class Bank {
                     body.classList.add("green");
                     nextButton.classList.remove("hidden");
                     this.score++;
+                    playerScore.innerText = `Score: ${this.score}`;
                 }
                 else {
                     body.classList.add("red");
                     nextButton.classList.remove("hidden");
+                    playerScore.innerText = `Score: ${this.score}`;
                 }
             }
         }
@@ -125,6 +129,7 @@ class Bank {
             if (timer == 0) {
                 clearInterval(time);
                 countdown.innerHTML = "Time is Up!";
+                playerScore.classList.add("hidden");
                 newBank.gameOver();
             }
         }, 1000);
@@ -145,7 +150,8 @@ class Bank {
 
             let gif = document.createElement("img");
             quizContainer.appendChild(gif);
-
+            gif.setAttribute("class", "finalimg");
+            restartButton.classList.remove("hidden");
             if (this.score == 8) {
                 message.innerText = "A Perfect Score! You Really Know Your Stuff!";
                 gif.setAttribute("src", "images/applause.gif");
@@ -190,3 +196,9 @@ function nextQuestion(evt) {
     submitButton.classList.remove("hidden");
     newBank.displayQuestion();
 }
+
+//Event Listener on restart button to restart game
+restartButton.addEventListener("click", function(evt){
+    evt.preventDefault();
+    window.location.reload();
+})

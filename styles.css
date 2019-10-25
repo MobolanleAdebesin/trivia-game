@@ -30,9 +30,12 @@ h1{
         padding: 1em;
         background-color: #3c4245;
         opacity: 0.8;
-        border-radius: 5px;
-        color: crimson;
+        border-radius: 4px;
+        color: #f2eee5;
         margin-bottom:0;
+}
+#playerScore{
+    margin: 0 0 4em;
 }
 header{
     text-align: center;
@@ -67,7 +70,6 @@ main{
     background-color: #3c4245;
     opacity: 0.8;
     border-radius: 1rem;
-    /* margin: 2rem; */
 }
 #label-container{
     display: grid;
@@ -99,20 +101,19 @@ h2{
         /* background-color: rgb(210, 210, 247); */
         border-radius: 1rem;
     }
+    label:hover{
+        background-color: gray;
+    }
     input[type="radio"]{
         opacity: 0;
     }
     input[type="radio"]:checked ~ p{
-       color:   #135D83;
+       color: rgba(220, 20, 60, 0.507);
       
 
     }
     p{
         color: black;
-    }
-
-    p:hover{
-        color:#135D83;
     }
 
 a{
@@ -142,18 +143,30 @@ a:hover{
 #submit-btn{
     padding: 0.5em;
 }
+#restart-btn{
+    text-align: center;
+    width: 25em;
+    font-size: 1em;
+}
+.finalimg{
+    width: 20em;
+    margin: 1em;
+}
 .hidden{
     display: none;
 }
 
 
 @media screen and (max-width: 768px){
-
+    #playerScore{
+        margin: 0 0 2em;
+        text-align: right;
+    }
     #intro, #quiz-container{
         padding: 1em 2em 1em;
         font-size: 2rem;
         text-align: justify;
-        line-height: 2rem;
+        line-height: 3rem;
         background-color: #3c4245;
         opacity: 0.8;
         border-radius: 1rem;
@@ -180,9 +193,18 @@ a:hover{
             margin: 1rem;
             /* background-image: radial-gradient(circle, #719192, #6d8688, #687c7e, #647174, #5f6769); */
         }
+        #restart-btn{
+            text-align: center;
+            width: 20em;
+            font-size: 1em;
+        }
        
 }
 @media screen and (max-width: 576px){
+    body{
+        text-align: center;
+
+    }
     header{
         font-size: 1rem;
     }
@@ -196,14 +218,15 @@ a:hover{
    }
     
     #intro, #quiz-container{
-    padding: 1em 2em 1em;
-    font-size: 1.2rem;
+    padding: 1em 3em 1em;
+    font-size: 1rem;
     text-align: justify;
-    line-height: 2rem;
+    line-height: 2em;
     background-color: #3c4245;
     opacity: 0.8;
     border-radius: 1rem;
-    margin: 0 2rem 1rem;
+    margin: 0 2em 1em;
+    padding: 3em;
     }
     header{
         text-align: center;
@@ -232,5 +255,4 @@ a:hover{
         /* background-color: #3c4245; */
         color: white;
     }
-
 }
