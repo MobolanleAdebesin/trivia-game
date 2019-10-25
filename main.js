@@ -128,11 +128,11 @@ class Bank {
                 newBank.gameOver();
             }
         }, 1000);
-
         this.displayQuestion();
         quizContainer.classList.remove("hidden");
         intro.classList.add("hidden");
         startButton.classList.add("hidden");
+        countdown.classList.remove("hidden");
     }
     gameOver(){
         form.style.display = "none";

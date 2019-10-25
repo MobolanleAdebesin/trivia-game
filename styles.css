@@ -19,6 +19,21 @@ body{
 h1{
     font-family: 'Nosifer', cursive;
 }
+#countdown{
+    font-size: 2rem;
+    text-shadow:
+		-1px -1px 0 black,
+		1px -1px 0 black,
+		-1px 1px 0 black,
+        1px 1px 0 black;
+        font-family: cursive;
+        padding: 1em;
+        background-color: #3c4245;
+        opacity: 0.8;
+        border-radius: 5px;
+        color: crimson;
+        margin-bottom:0;
+}
 header{
     text-align: center;
     color: #f2eee5;
@@ -52,7 +67,7 @@ main{
     background-color: #3c4245;
     opacity: 0.8;
     border-radius: 1rem;
-    margin: 2rem;
+    /* margin: 2rem; */
 }
 #label-container{
     display: grid;
