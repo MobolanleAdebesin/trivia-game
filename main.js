@@ -39,6 +39,7 @@ class Bank {
         this.count = 0;
         this.score = 0;
         this.questions = [];
+        this.highscore = 0;
     }
     createQuestions() {
 
@@ -139,31 +140,43 @@ class Bank {
         startButton.classList.add("hidden");
         countdown.classList.remove("hidden");
     }
-    gameOver(){
+    gameOver() {
+        //Previous score is set to what the current score is 
+        this.prevScore = this.score;
         form.style.display = "none";
-            let gameOver = document.createElement("h2");
-            quizContainer.appendChild(gameOver);
-            gameOver.innerText = `Game Over Your Score is ${this.score} out of 8`;
+        
+        let previousScore = document.createElement("h4");
+        quizContainer.appendChild(previousScore);
+        //The previous score is set to the sessionStorage item. 
+        previousScore.innerHTML = `Your Previous Score: ${sessionStorage.getItem("lastScore")}`;
+        
+        //The sessionStorage item is equal to the previous score 
+        sessionStorage.setItem("lastScore", this.prevScore);
 
-            let message = document.createElement("h3");
-            quizContainer.appendChild(message);
+        let gameOver = document.createElement("h2");
+        quizContainer.appendChild(gameOver);
+        gameOver.innerText = `Game Over Your Score is ${this.score} out of 8.`;
 
-            let gif = document.createElement("img");
-            quizContainer.appendChild(gif);
-            gif.setAttribute("class", "finalimg");
-            restartButton.classList.remove("hidden");
-            if (this.score == 8) {
-                message.innerText = "A Perfect Score! You Really Know Your Stuff!";
-                gif.setAttribute("src", "images/applause.gif");
-            }
-            else if (this.score < 8 && this.score > 4) {
-                message.innerText = "Not Too Bad, But You Can Do Better!";
-                gif.setAttribute("src", "images/tiana.gif");
-            }
-            else if (this.score <= 4) {
-                message.innerText = "Yikes. Might Wanna Brush Up On Your Fairytales!";
-                gif.setAttribute("src", "images/Pocahontas.gif")
-            }
+        let message = document.createElement("h3");
+        quizContainer.appendChild(message);
+
+        let gif = document.createElement("img");
+        quizContainer.appendChild(gif);
+        gif.setAttribute("class", "finalimg");
+        restartButton.classList.remove("hidden");
+
+        if (this.score == 8) {
+            message.innerText = "A Perfect Score! You Really Know Your Stuff!";
+            gif.setAttribute("src", "images/applause.gif");
+        }
+        else if (this.score < 8 && this.score > 4) {
+            message.innerText = "Not Too Bad, But You Can Do Better!";
+            gif.setAttribute("src", "images/tiana.gif");
+        }
+        else if (this.score <= 4) {
+            message.innerText = "Yikes. Might Wanna Brush Up On Your Fairytales!";
+            gif.setAttribute("src", "images/Pocahontas.gif")
+        }
     }
 }
 //Initializing the instance of the class Bank called newBank; 
@@ -196,9 +209,13 @@ function nextQuestion(evt) {
     submitButton.classList.remove("hidden");
     newBank.displayQuestion();
 }
-
 //Event Listener on restart button to restart game
-restartButton.addEventListener("click", function(evt){
+restartButton.addEventListener("click", function (evt) {
     evt.preventDefault();
     window.location.reload();
 })
+
+
+
+
+
