@@ -47,4 +47,10 @@ If you find issues with the code or have suggestions for ways to improve the gam
 The main repository for the game and all of the code can be found [here](https://github.com/MobolanleAdebesin/trivia-game). 
 
 
-
+## Resources
+- [Giphy.com](https://giphy.com/)
+- [The Guardian](www.theguardian.com)
+- [Geeks for Geeks](www.geeksforgeeks.org)
+- The Fisher-Yates Shuffle Algorithm
+- W3Schools 
+- MDN Web Docs 
