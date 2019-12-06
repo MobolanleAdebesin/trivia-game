@@ -3,7 +3,7 @@
 ## Description 
 This trivia-game is my first General Assembly Project built without guidance. All the choices from the design of the game, the user interface, and logic were created from beginning to end. The goal of this project was to create a minimum viable project in the alloted 3 day time span, thus demonstrating my ability to work independently while meeting outlined technical requirements. 
 
-The purpose of this project is for users to test their knowledge about the histories and origins or popular fairytales. 
+The purpose of this project is for users to test their knowledge about the histories and origins of popular fairytales. 
 
 ## Installation: 
 The game is hosted [here]( https://mobolanleadebesin.github.io/trivia-game/) on GitHub Pages 
